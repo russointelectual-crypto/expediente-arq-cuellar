@@ -28,3 +28,10 @@ No elijo Builder porque no se necesita construir un objeto por pasos, sino compa
 La situacion 1 se implementa en `solucion.php` con el contrato `ObservadorVencimiento`, el sujeto `ModuloSocios` y dos suscriptores concretos: `AvisoWhatsApp` y `RegistroVencidos`.
 El ejemplo registra ambos suscriptores y publica el vencimiento de la membresia de Ana Perez.
 El aviso de WhatsApp es simulado y el registro se conserva en memoria; no se requieren servicios externos.
+
+## P2.3 Conexion SOLID
+
+La implementacion aplica el principio abierto/cerrado (OCP): permite agregar nuevos receptores sin modificar `ModuloSocios`.
+Se ve en la decision de aceptar `ObservadorVencimiento` en `suscribir()` y recorrer los suscriptores en `vencerMembresia()`.
+Para incorporar promociones, basta crear otra clase que implemente `actualizar()` y suscribirla en el codigo de uso.
+El modulo de socios conserva su codigo mientras el comportamiento se amplía mediante una nueva implementacion del contrato.
