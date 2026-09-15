@@ -23,3 +23,8 @@ El adaptador convierte los montos a centavos y resuelve el token del cliente med
 Sin esta frontera, las llamadas y formatos externos se dispersan por el sistema y cambiar de pasarela exige modificar varios modulos.
 No elijo Builder porque no se necesita construir un objeto por pasos, sino compatibilizar interfaces distintas.
 
+## P2.2 Implementacion 
+
+La situacion 1 se implementa en `solucion.php` con el contrato `ObservadorVencimiento`, el sujeto `ModuloSocios` y dos suscriptores concretos: `AvisoWhatsApp` y `RegistroVencidos`.
+El ejemplo registra ambos suscriptores y publica el vencimiento de la membresia de Ana Perez.
+El aviso de WhatsApp es simulado y el registro se conserva en memoria; no se requieren servicios externos.
