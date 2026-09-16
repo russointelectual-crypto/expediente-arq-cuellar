@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-// Solucion: <Richard Cuellar Rojas>
+// Solucion: Richard Cuellar Rojas
 // Fuerza Andina - Situacion 1: Observer.
 
 
