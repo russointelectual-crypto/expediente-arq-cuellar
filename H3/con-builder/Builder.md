@@ -10,4 +10,4 @@ Ventaja: llamadas legibles en recepcion y una fecha opcional. Costo: mas codigo 
 
 Las cinco clases de base son identicas. El equipo se crea directamente, sin Factory Method.
 
-Ejecutar: `php h3/con-builder/demo.php`.
+Ejecutar: `php H3/con-builder/demo.php`.

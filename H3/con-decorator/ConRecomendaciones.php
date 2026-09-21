@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/ReciboDecorador.php';
 
-class ConRecomendaciones extends ReciboDecorador
+final class ConRecomendaciones extends ReciboDecorador
 {
     public function __construct(IRecibo $recibo, private string $recomendaciones)
     {

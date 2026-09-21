@@ -2,9 +2,9 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/IRecibo.php';
-require_once __DIR__ . '/../base/OrdenDeTrabajo.php';
+require_once __DIR__ . '/OrdenDeTrabajo.php';
 
-class ReciboBasico implements IRecibo
+final class ReciboBasico implements IRecibo
 {
     public function __construct(private OrdenDeTrabajo $orden)
     {

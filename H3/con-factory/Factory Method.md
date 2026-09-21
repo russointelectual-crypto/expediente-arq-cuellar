@@ -15,7 +15,7 @@ Es Factory Method por la redefinicion del metodo de creacion en subclases. No es
 
 Las cinco clases de base se conservan identicas. No incorpora Builder ni Adapter. La clase RecepcionEquipo es un soporte nuevo del H3 para aislar la creacion; no sustituye todo ServicioRecepcion del H2, que ademas contempla permisos y busqueda.
 
-Ejecutar: `php h3/con-factory/demo.php`.
+Ejecutar: `php H3/con-factory/demo.php`.
 
 ```mermaid
 classDiagram

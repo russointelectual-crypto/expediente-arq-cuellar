@@ -2,9 +2,9 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/ReciboDecorador.php';
-require_once __DIR__ . '/../base/Equipo.php';
+require_once __DIR__ . '/Equipo.php';
 
-class ConDetalleEquipo extends ReciboDecorador
+final class ConDetalleEquipo extends ReciboDecorador
 {
     public function __construct(IRecibo $recibo, private Equipo $equipo)
     {

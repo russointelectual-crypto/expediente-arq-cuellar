@@ -15,7 +15,7 @@ La funcion cliente comprueba que la orden este lista y depende de INotificador. 
 
 El beneficio es aislar la interfaz externa; en produccion faltarian credenciales, manejo de errores, reintentos y prevencion de avisos duplicados. Ninguna de esas funciones se afirma implementada.
 
-Ejecutar: `php h3/con-adapter/demo.php`.
+Ejecutar: `php H3/con-adapter/demo.php`.
 
 ```mermaid
 classDiagram

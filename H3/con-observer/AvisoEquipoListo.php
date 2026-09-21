@@ -3,14 +3,18 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/IObservadorOrden.php';
 
-class AvisoEquipoListo implements IObservadorOrden
+final class AvisoEquipoListo implements IObservadorOrden
 {
     public function actualizar(CambioEstado $cambio): void
     {
-        if ($cambio->estadoActual !== 'lista') {
-            return;
+        if ($cambio->estadoActual === 'lista') {
+            echo '[AVISO] ' . $cambio->cliente . ' (' . $cambio->celular . '): '
+                . 'la orden ' . $cambio->numeroRecibo . " esta lista para retirar.\n";
         }
-        echo '[AVISO SIMULADO] Para ' . $cambio->cliente . ' (' . $cambio->celular
-            . '): su equipo de la orden ' . $cambio->numeroRecibo . " esta listo.\n";
+
+        if ($cambio->estadoActual === 'devuelta sin solucion') {
+            echo '[AVISO] ' . $cambio->cliente . ': la orden ' . $cambio->numeroRecibo
+                . " fue devuelta sin solucion.\n";
+        }
     }
 }
