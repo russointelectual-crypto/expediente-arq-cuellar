@@ -1,6 +1,6 @@
 # Parte 2 — La cirugía SOLID: detecciones
 
-**Autor:** Richard Cuellar · **Archivo analizado:** `esqueleto-A.cs` (Comedor "Sabor Andino")
+**Autor:** Richard Cuellar Rojas · Comedor "Sabor Andino"
 
 | # | Principio | Dónde (esqueleto-A.cs) | Por qué es violación |
 |---|---|---|---|

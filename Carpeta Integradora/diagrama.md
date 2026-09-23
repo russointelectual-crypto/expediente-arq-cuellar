@@ -1,15 +1,9 @@
 # Parte 1 — El plano: diagrama de clases del comedor "Sabor Andino"
 
-**Autor:** Richard Cuellar · Ingeniería de Sistemas · Arquitectura de Software
+**Estudiante:** Richard Cuellar Rojas · Arquitectura de Software
 **Variante:** A — Comedor Universitario
 
-Diagrama construido **desde los requerimientos** (no desde el esqueleto), con la receta de 4 pasos.
-
----
-
 ## Paso 1 — Sustantivos (candidatos a clase o atributo)
-
-> El sistema registra **pedidos** de **menú**: cada **estudiante** pide uno o más menús de un **tipo** (estándar, vegetariano o beca), el pedido pasa por **estados** (solicitado → preparado → entregado / anulado), y el **comedor** tiene dos **roles**: el **cajero** registra pedidos y el **administrador** ajusta **precios** y anula pedidos. Cuando un pedido queda preparado, el estudiante debe recibir un **aviso**. A **fin de semana**, la administración pide un **reporte** de menús vendidos por tipo.
 
 Sustantivos: sistema, pedido, menú, estudiante, cantidad ("uno o más"), tipo, estado, comedor, rol, cajero, administrador, precio, aviso, fin de semana, reporte.
 
@@ -43,7 +37,7 @@ Sustantivos: sistema, pedido, menú, estudiante, cantidad ("uno o más"), tipo, 
 
 ```mermaid
 ---
-title: "Comedor Sabor Andino — Diagrama de clases · Autor: Richard Cuellar"
+title: "Comedor Sabor Andino — Diagrama de clases · Estudiante: Richard Cuellar Rojas"
 ---
 classDiagram
     direction TB
@@ -149,15 +143,14 @@ classDiagram
     AvisoAlEstudiante --> INotificador : usa
     INotificador <|.. CorreoUniversitario
 
-    note for Pedido "SUJETO del patrón Observer (ver patron.md).<br>precioUnitario se congela al registrar:<br>si el admin ajusta el precio después,<br>los pedidos viejos no cambian su total."
-    note for AvisoAlEstudiante "OBSERVADOR concreto: reacciona<br>solo cuando el estado pasa a PREPARADO.<br>Usa INotificador (la abstracción<br>curada en refactor.cs)."
+    
 ```
 
 ### Complemento: ciclo de vida del pedido (justifica los métodos de `Pedido`)
 
 ```mermaid
 ---
-title: "Estados de Pedido · Richard Cuellar"
+title: "Estados de Pedido · Richard Cuellar Rojas"
 ---
 stateDiagram-v2
     [*] --> SOLICITADO : Cajero.registrarPedido()
@@ -168,11 +161,3 @@ stateDiagram-v2
     ENTREGADO --> [*]
     ANULADO --> [*]
 ```
-
-## Decisiones que conviene defender
-
-- **`Menu` guarda el precio como dato** porque el administrador lo ajusta; en el esqueleto el precio vive en un `switch` (ver violación OCP en `detecciones.md`).
-- **`Pedido.precioUnitario`** es una copia del precio al momento de registrar: el reporte semanal y los totales históricos no se alteran cuando el administrador cambia precios.
-- **`Usuario` abstracto** modela "el comedor tiene dos roles" sin duplicar atributos en Cajero y Administrador.
-- **El reporte suma `cantidad` (menús, no pedidos) por `TipoMenu` y excluye los `ANULADO`**: un pedido de 3 menús son 3 menús vendidos, y un pedido anulado no es una venta.
-- **El aviso no es una llamada fija dentro de `Pedido`**: `Pedido` solo conoce la interfaz `IObservadorPedido`. Ese es el patrón de la Parte 3, y está dentro del diagrama (coherencia, Parte 5).

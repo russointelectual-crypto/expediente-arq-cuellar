@@ -1,4 +1,4 @@
-// Refactor: Richard Cuellar
+// Refactor: Richard Cuellar Rojas
 // INTEGRADORA · VARIANTE A — Comedor Universitario "Sabor Andino"
 //
 // Violación curada: #3 DIP (Principio de Inversión de Dependencias).
