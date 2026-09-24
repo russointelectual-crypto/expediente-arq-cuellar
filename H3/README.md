@@ -1,6 +1,6 @@
 # H3 + H4 (parte A) — Laboratorio de patrones
 
-**Estuante:** Richard Cuellar Rojas · **Variante 6:** Taller y soporte técnico · Código en **PHP 8.1+**, sin dependencias.
+**Estudiante:** Richard Cuellar Rojas · **Variante 6:** Taller y soporte técnico · Código en **PHP 8.1+**, sin dependencias.
 
 Cada carpeta `con-*/` es una **copia de `base/`** con **un solo** patrón encima (nunca uno sobre otro), para ver el efecto puro de cada uno. `final/` es la fusión de los dos que mi caso necesita.
 
