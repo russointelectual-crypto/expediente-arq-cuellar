@@ -2,7 +2,7 @@
 
 > **Observer** decide **cuándo y a quién** avisar. **Strategy** decide **cuánto** cobrar. Los dos trabajan en el mismo flujo: el cierre de una orden de trabajo.
 
-La decisión y sus alternativas están en el [ADR-001](../../h4/adr-001.md).
+La decisión y sus alternativas están en el ADR-001.
 
 ## Por qué estos dos (en una línea cada uno)
 
