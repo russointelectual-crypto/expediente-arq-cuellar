@@ -6,7 +6,7 @@
 
 ## 1. ANTES — mi diagrama del H1, con sus problemas a la vista
 
-Es el mismo diagrama del [H1](../h1/README.md#4-primer-diagrama-de-clases), sin retoques. Solo le agregué notas donde están los problemas (P1 a P6).
+Es el mismo diagrama del H1, sin retoques. Solo le agregué notas donde están los problemas (P1 a P6).
 
 ```mermaid
 classDiagram
