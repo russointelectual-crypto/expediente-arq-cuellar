@@ -1,19 +1,24 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/RecepcionEquipo.php';
-
-class RecepcionLaptop extends RecepcionEquipo
+/** FACTORY METHOD — Creador concreto: sabe crear una Laptop (y exige el tipo de batería, RN3). */
+final class RecepcionLaptop extends RecepcionDeEquipo
 {
-    public function __construct(
-        private int $id, private string $marca, private string $modelo,
-        private string $serie, private string $tipoBateria,
-        private bool $bateriaEntregada = false
-    ) {}
-
-    public function crearEquipo(): Equipo
+    public function tipoQueRecibe(): string
     {
-        return new Laptop($this->id, $this->marca, $this->modelo, $this->serie,
-            $this->tipoBateria, $this->bateriaEntregada);
+        return 'Laptop';
+    }
+
+    protected function crearEquipo(array $datos): Equipo
+    {
+        return new Laptop(
+            $this->requerido($datos, 'marca'),
+            $this->requerido($datos, 'modelo'),
+            $this->requerido($datos, 'procesador'),
+            (int) $this->requerido($datos, 'ram'),
+            (int) ($datos['hdd'] ?? 0),
+            (int) ($datos['ssd'] ?? 0),
+            $this->requerido($datos, 'bateria'),
+        );
     }
 }

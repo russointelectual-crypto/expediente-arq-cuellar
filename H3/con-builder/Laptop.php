@@ -1,24 +1,42 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/Equipo.php';
-
-class Laptop extends Equipo
+/**
+ * Laptop: la única que tiene regla de batería (RN3).
+ * Interna → queda en el equipo y se registra. Externa → se devuelve al cliente.
+ */
+final class Laptop extends Equipo
 {
+    public const BATERIA_INTERNA = 'INTERNA';
+    public const BATERIA_EXTERNA = 'EXTERNA';
+    public const SIN_BATERIA     = 'SIN_BATERIA';
+
     public function __construct(
-        int $id, string $marca, string $modelo, string $numeroSerie,
-        public string $tipoBateria,
-        public bool $bateriaEntregadaAlCliente = false
+        string $marca,
+        string $modelo,
+        string $procesador,
+        int $ramGB,
+        int $hddGB,
+        int $ssdGB,
+        public readonly string $bateria,
     ) {
-        parent::__construct($id, $marca, $modelo, $numeroSerie);
-        if (trim($tipoBateria) === '') {
-            throw new InvalidArgumentException('Indique el tipo de bateria.');
+        parent::__construct($marca, $modelo, $procesador, $ramGB, $hddGB, $ssdGB);
+        if (!in_array($bateria, [self::BATERIA_INTERNA, self::BATERIA_EXTERNA, self::SIN_BATERIA], true)) {
+            throw new InvalidArgumentException("Tipo de batería inválido: {$bateria}.");
         }
     }
 
-    public function revisionDeIngreso(): string
+    public function tipo(): string
     {
-        return 'Laptop: revisar pantalla, teclado y cargador. Bateria: ' . $this->tipoBateria
-            . ($this->bateriaEntregadaAlCliente ? ' (entregada al cliente).' : ' (queda en el taller).');
+        return 'Laptop';
+    }
+
+    public function notasDeRecepcion(): array
+    {
+        return match ($this->bateria) {
+            self::BATERIA_INTERNA => ['Batería interna: queda dentro del equipo.'],
+            self::BATERIA_EXTERNA => ['Batería externa: se DEVUELVE al cliente en el mostrador.'],
+            self::SIN_BATERIA     => ['El equipo ingresa sin batería.'],
+        };
     }
 }

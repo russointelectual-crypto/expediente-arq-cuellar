@@ -1,19 +1,23 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/RecepcionEquipo.php';
-
-class RecepcionPCEscritorio extends RecepcionEquipo
+/** FACTORY METHOD — Creador concreto: sabe crear una PC de escritorio. */
+final class RecepcionPcEscritorio extends RecepcionDeEquipo
 {
-    public function __construct(
-        private int $id, private string $marca, private string $modelo,
-        private string $serie, private string $tipoGabinete,
-        private bool $monitorIncluido = false
-    ) {}
-
-    public function crearEquipo(): Equipo
+    public function tipoQueRecibe(): string
     {
-        return new PCEscritorio($this->id, $this->marca, $this->modelo, $this->serie,
-            $this->tipoGabinete, $this->monitorIncluido);
+        return 'PC de escritorio';
+    }
+
+    protected function crearEquipo(array $datos): Equipo
+    {
+        return new PcEscritorio(
+            $this->requerido($datos, 'marca'),
+            $this->requerido($datos, 'modelo'),
+            $this->requerido($datos, 'procesador'),
+            (int) $this->requerido($datos, 'ram'),
+            (int) ($datos['hdd'] ?? 0),
+            (int) ($datos['ssd'] ?? 0),
+        );
     }
 }
