@@ -71,4 +71,4 @@ php h3/con-observer/demo.php
 ## Qué gané / qué pagué
 
 - **Gané:** un interesado nuevo (por ejemplo, avisar también al gerente cuando una orden queda sin solución, o un WhatsApp al cliente el día que el taller lo contrate) es una clase nueva y una línea de suscripción. La orden no se toca.
-- **Pagué:** el flujo ya no se lee en un solo método (hay que saber quién está suscrito), y alguien tiene que suscribir los observadores cada vez que se crea o se carga una orden. En esta copia la bandeja todavía usa el `totalACobrar()` con `if/else` de la base; eso lo resuelve la fusión en [`final/`](../final/).
+- **Pagué:** el flujo ya no se lee en un solo método (hay que saber quién está suscrito), y alguien tiene que suscribir los observadores cada vez que se crea o se carga una orden. En esta copia la bandeja todavía usa el `totalACobrar()` con `if/else` de la base; eso lo resuelve la fusión en `final/`

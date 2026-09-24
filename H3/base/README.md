@@ -1,6 +1,6 @@
 # h3/base — El corazón del caso, SIN patrones
 
-Cinco clases transcritas de la [vista A del H2](../../h2/README.md#vista-a--dominio-y-seguridad): lo mínimo para recibir un equipo, llevarlo por sus estados y entregarlo. Todas las carpetas `con-*/` parten de una **copia exacta** de estos archivos.
+Cinco clases transcritas de la vista A del H2: lo mínimo para recibir un equipo, llevarlo por sus estados y entregarlo. Todas las carpetas `con-*/` parten de una **copia exacta** de estos archivos.
 
 | Clase | Responsabilidad | Regla del negocio que protege |
 |---|---|---|

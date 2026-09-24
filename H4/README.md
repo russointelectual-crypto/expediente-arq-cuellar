@@ -1,6 +1,6 @@
 # H4 (parte B) — Documentación de la decisión: C4 + ADR
 
-**Autor:** Richard Cuellar Rojas · **Variante 6:** Taller y soporte técnico
+**Estudiante:** Richard Cuellar Rojas · **Variante 6:** Taller y soporte técnico
 
 
 ---
